@@ -1,3 +1,4 @@
+import { Link as RouteLink, useNavigate } from 'react-router-dom'
 import {
   Avatar,
   Box,
@@ -10,10 +11,12 @@ import {
   Typography,
 } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { ArrowBack } from '@mui/icons-material'
 
 const theme = createTheme()
 
 function SignUp() {
+  const navigate = useNavigate()
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -29,6 +32,13 @@ function SignUp() {
           // bgcolor: 'green',
         }}
       >
+        <Box sx={{ width: '30%' }}>
+          <ArrowBack
+            color='primary'
+            fontSize='medium'
+            onClick={() => navigate(-1)}
+          />
+        </Box>
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} />
         <Typography component='h1' variant='h5'>
           Sign up
@@ -45,6 +55,7 @@ function SignUp() {
             label='Full Name'
             name='name'
             autoComplete='name'
+            autoFocus
             size='small'
           />
           <TextField
@@ -81,7 +92,9 @@ function SignUp() {
           </Button>
           <Grid container>
             <Grid item marginTop={2}>
-              <Link>{'Already have an account? Sign in'}</Link>
+              <RouteLink to='/signin'>
+                <Link>{'Already have an account? Sign in'}</Link>
+              </RouteLink>
             </Grid>
           </Grid>
         </Box>

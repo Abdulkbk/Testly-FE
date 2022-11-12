@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   Box,
   Button,
@@ -36,7 +37,7 @@ function Index() {
               <Typography
                 component='h1'
                 color='primary'
-                variant='h2'
+                variant='h1'
                 fontWeight='bold'
               >
                 Testly
@@ -47,19 +48,24 @@ function Index() {
                 component='p'
                 variant='body1'
                 color='primary'
-                fontWeight='normal'
+                fontWeight='semibold'
+                fontSize='20px'
               >
                 Test now, Ace later
               </Typography>
             </Grid>
             <Grid item>
               <Grid container mt={2}>
-                <Button variant='contained' sx={{ mx: 1 }}>
-                  Sign in
-                </Button>
-                <Button variant='contained' color='success' sx={{ mx: 1 }}>
-                  Sign up
-                </Button>
+                <Link to='/signin'>
+                  <Button variant='contained' sx={{ mx: 1 }}>
+                    Sign in
+                  </Button>
+                </Link>
+                <Link to='/signup'>
+                  <Button variant='contained' color='success' sx={{ mx: 1 }}>
+                    Sign up
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </Grid>
